@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="ui-panel">
+        <h1 class="title">Snake Game</h1>
+        <div class="score-row">
+            <div class="timers">
+                <div id="bonus-timer"></div>
+                <div id="grape-timer"></div>
+            </div>
+            <h2 id="score">Score: 0</h2>
+        </div>
+    </div>
+
+    <div id="game-wrapper">
+        <div id="legend">
+            <h3>Fruits</h3>
+
+            <div class="fruit-row">
+                <span class="fruit-icon">🍎</span>
+                <div class="fruit-info">
+                    <div class="fruit-name">Apple</div>
+                    <div class="fruit-desc">+1 point, spawn chance 60%</div>
+                </div>
+            </div>
+
+            <div class="fruit-row">
+                <span class="fruit-icon">🍐</span>
+                <div class="fruit-info">
+                    <div class="fruit-name">Pear</div>
+                    <div class="fruit-desc">+2 points, spawn chance 15%</div>
+                </div>
+            </div>
+
+            <div class="fruit-row">
+                <span class="fruit-icon">🍉</span>
+                <div class="fruit-info">
+                    <div class="fruit-name">Watermelon</div>
+                    <div class="fruit-desc">+5 points, spawn chance 10%</div>
+                </div>
+            </div>
+
+            <div class="fruit-row">
+                <span class="fruit-icon">🍒</span>
+                <div class="fruit-info">
+                    <div class="fruit-name">Cherry</div>
+                    <div class="fruit-desc">+1 point, x2 score for 30s, spawn chance 5%</div>
+                </div>
+            </div>
+
+            <div class="fruit-row">
+                <span class="fruit-icon">🔄</span>
+                <div class="fruit-info">
+                    <div class="fruit-name">Refresh</div>
+                    <div class="fruit-desc">
+                        Resets snake length, keeps score, spawn chance 1%
+                    </div>
+                </div>
+            </div>
+
+            <div class="fruit-row">
+                <span class="fruit-icon">🍇</span>
+                <div class="fruit-info">
+                    <div class="fruit-name">Grape</div>
+                    <div class="fruit-desc">
+                        70%: +3 points, 30%: 0 points and tunnel vision (4×4 cells around head),
+                        spawn chance 9%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <canvas id="game" width="800" height="800"></canvas>
+
+
+            <div id="start-overlay">
+                <div class="start-box">
+                    <div class="start-text">Press Enter to Start</div>
+
+                    <div class="keys">
+                        <div class="key-row">
+                            <div class="key">↑</div>
+                        </div>
+                        <div class="key-row">
+                            <div class="key">←</div>
+                            <div class="key">↓</div>
+                            <div class="key">→</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shop-panel">
+            <h3 class="shop-title">Shop</h3>
+            <div class="shop-content">
+                <div class="shop-placeholder">Coming soon...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
