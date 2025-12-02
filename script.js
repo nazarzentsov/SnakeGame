@@ -64,7 +64,7 @@ const DARKNESS_DURATION = 10000;
 let grapeTimerActive = false;
 let grapeTimerUntil = 0;
 let passiveGrowTimer = 0;
-const PASSIVE_GROW_INTERVAL = 10000;
+const PASSIVE_GROW_INTERVAL = 5000;
 
 document.addEventListener("keydown", direction);
 document.addEventListener("keydown", function (e) {
