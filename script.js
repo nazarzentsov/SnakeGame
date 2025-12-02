@@ -63,6 +63,8 @@ let darknessActive = false;
 const DARKNESS_DURATION = 10000;
 let grapeTimerActive = false;
 let grapeTimerUntil = 0;
+let passiveGrowTimer = 0;
+const PASSIVE_GROW_INTERVAL = 10000;
 
 document.addEventListener("keydown", direction);
 document.addEventListener("keydown", function (e) {
@@ -79,6 +81,7 @@ document.addEventListener("keydown", function (e) {
 });
 
 function initGameState() {
+    passiveGrowTimer = 0;
     snake = [
         {
             x: Math.floor(cols / 2) * box,
@@ -861,6 +864,22 @@ function gameLoop(timestamp) {
     if (!lastTimestamp) lastTimestamp = timestamp;
     const delta = timestamp - lastTimestamp;
     currentTime = timestamp;
+    if (!gameOver && gameStarted && !isRefreshAnimating) {
+    if (timestamp - passiveGrowTimer >= PASSIVE_GROW_INTERVAL) {
+        passiveGrowTimer = timestamp;
+
+        const tail = snake[snake.length - 1];
+        const preTail = snake[snake.length - 2] || tail;
+
+        const dx = tail.x - preTail.x;
+        const dy = tail.y - preTail.y;
+
+        snake.push({
+            x: tail.x + dx,
+            y: tail.y + dy
+        });
+    }
+}
 
     let cherryActive = false;
     let grapeActive = false;
@@ -922,6 +941,7 @@ function gameLoop(timestamp) {
 }
 
 function restartGame() {
+    passiveGrowTimer = 0;
     initGameState();
     deactivateGrapeDarkness();
 }
