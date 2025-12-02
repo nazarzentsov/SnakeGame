@@ -695,8 +695,6 @@ function update() {
     return;
 }
 
-
-
     snake.unshift(newHead);
     lastMoveDir = dir;
 
